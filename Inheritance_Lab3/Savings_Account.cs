@@ -14,7 +14,7 @@ namespace Inheritance_Lab3
 
         public override string CloseAndReport()
         {
-            if (numberOfWithdrawal > 4)
+            if (totalOfWithdrawalThisMonth > 4)
                 monthServiceCharge++;
             return base.CloseAndReport();
         }
@@ -31,6 +31,7 @@ namespace Inheritance_Lab3
             else if (inactive && starting_balance > 25)
             {
                 inactive = active;
+                base.MakeDeposit(amount);
             }
             else if (active && starting_balance < 25)
                 active = inactive;

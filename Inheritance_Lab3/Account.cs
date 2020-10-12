@@ -63,12 +63,14 @@ namespace Inheritance_Lab3
         {
             starting_balance += amount;
             numberOfDeposits++;
+            totalOfDepositsThisMonth += numberOfDeposits;
         }
 
         public virtual void MakeWithdrawl(double amount)
         {
             starting_balance -= amount;
             numberOfWithdrawal++;
+            totalOfWithdrawalThisMonth = numberOfWithdrawal;
         }
     }
 }
