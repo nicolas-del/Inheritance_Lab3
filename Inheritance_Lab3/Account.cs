@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace Inheritance_Lab3
 {
  
-    class Account : IAccount
+    abstract class Account : IAccount
     {
-        protected enum status
+        protected enum Status
         {
-            active, inactive
+            active, inactive 
         }
 
         protected double starting_balance;  
@@ -20,8 +20,8 @@ namespace Inheritance_Lab3
         protected double totalOfWithdrawalThisMonth; 
         protected double annualInterestRate; 
         protected double monthServiceCharge; 
-        protected int numberOfDeposits = 0;
-        protected int numberOfWithdrawal = 0;
+        protected int numberOfDeposits;
+        protected int numberOfWithdrawal;
 
         public double Starting_Balance { get { return starting_balance; } }
         public double Current_Balance { get { return current_balance; } }
@@ -47,7 +47,7 @@ namespace Inheritance_Lab3
         public virtual string CloseAndReport()
         {
             double result; 
-            result = monthServiceCharge - current_balance;
+            result = current_balance - monthServiceCharge;
             CalculateInterest();
             numberOfWithdrawal = 0; 
             numberOfDeposits = 0;  
