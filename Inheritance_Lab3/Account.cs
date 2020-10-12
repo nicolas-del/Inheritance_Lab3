@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Inheritance_Lab3
 {
-    protected enum status 
-    { 
-        active, inactive
-    }
-
-    class Bank_Account : IAccount
+ 
+    class Account : IAccount
     {
+        protected enum status
+        {
+            active, inactive
+        }
 
         protected double starting_balance;  
         protected double current_balance;  
@@ -26,9 +26,9 @@ namespace Inheritance_Lab3
         public double Starting_Balance { get { return starting_balance; } }
         public double Current_Balance { get { return current_balance; } }
 
-        public Bank_Account() { }
+        public Account() { }
 
-        public Bank_Account(double sb, double annualRate) 
+        public Account(double sb, double annualRate) 
         {
             starting_balance = sb;
             annualInterestRate = annualRate;
