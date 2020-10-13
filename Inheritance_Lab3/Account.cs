@@ -16,8 +16,8 @@ namespace Inheritance_Lab3
 
         protected double starting_balance;  
         protected double current_balance;  
-        protected int totalOfDepositsThisMonth; 
-        protected int totalOfWithdrawalThisMonth; 
+        protected double totalOfDepositsThisMonth; 
+        protected double totalOfWithdrawalThisMonth; 
         protected double annualInterestRate; 
         protected double monthServiceCharge; 
         protected int numberOfDeposits;
@@ -46,27 +46,24 @@ namespace Inheritance_Lab3
 
         public virtual string CloseAndReport()
         {
-           
-            current_balance -= monthServiceCharge;
+            double result; 
+            result = current_balance - monthServiceCharge;
             CalculateInterest();
-            numberOfWithdrawal = 0;
-            numberOfDeposits = 0;
-            monthServiceCharge = 0;
+            numberOfWithdrawal = 0; 
+            numberOfDeposits = 0;  
+            monthServiceCharge = 0; 
 
-            return "Starting balance: " + starting_balance +
-                   "\nCurrent balance: " + current_balance +
-                   "\nAnnual interest rate: " + annualInterestRate +
-                   "\nTotal deposits this month: " + totalOfDepositsThisMonth +
-                   "\nTotal of withdrawal this month: " + totalOfWithdrawalThisMonth +
-                   "\nAccount status: " + Status.active +
-                   "\nService charges of the month: " + monthServiceCharge;
+            return "The balance at the beginning of the month was of " + starting_balance + ". Now it is of " + current_balance + " which minus the monthly service charge equals " + result + 
+                   ".\nAnnual interest rate: " + annualInterestRate + 
+                   "\nTotal deposits this month: " + totalOfDepositsThisMonth + 
+                   "\nTotal of withdrawal this month: " + totalOfWithdrawalThisMonth;
         }
 
         public virtual void MakeDeposit(double amount)
         {
             starting_balance += amount;
             numberOfDeposits++;
-            totalOfDepositsThisMonth = numberOfDeposits;
+            totalOfDepositsThisMonth += numberOfDeposits;
         }
 
         public virtual void MakeWithdrawl(double amount)

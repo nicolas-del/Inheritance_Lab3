@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Inheritance_Lab3
 {
-    class Program
+    class SavingsAccount : Bank_Account
     {
-        static void Main(string[] args)
+        public virtual void MakeWithDraw(protected enum status)
         {
-        }
+
     }
 }
