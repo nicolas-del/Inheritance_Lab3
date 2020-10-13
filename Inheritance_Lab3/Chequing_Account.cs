@@ -8,6 +8,11 @@ namespace Inheritance_Lab3
 {
     class Chequing_Account : Account
     {
+        public Chequing_Account(double sb, double annualRate) :base(sb, annualRate)
+        {
+            starting_balance = sb;
+            annualInterestRate = annualRate;
+        }
 
         public override string CloseAndReport() 
         {
@@ -25,6 +30,7 @@ namespace Inheritance_Lab3
         public override void MakeWithdrawl(double amount)
         {
          
+            
             if (current_balance < 0) 
             {
                 monthServiceCharge -= 15;
