@@ -116,6 +116,8 @@ namespace Inheritance_Lab3
           
         }
 
+        //Method which deposits an amount of money based on the instance name (_savings, _chequing, _global)
+
         private static void DepositsDependingOnInstance() 
         {
             double deposit;
@@ -139,6 +141,9 @@ namespace Inheritance_Lab3
                 _global.MakeDeposit(deposit);
             }
         }
+
+        //Method which withdraw an amount of money based on the instance name (_savings, _chequing, _global)
+
         private static void WithdrawalsDependingOnInstance() 
         {
             double withdraw;
@@ -147,21 +152,24 @@ namespace Inheritance_Lab3
             {
                 Console.WriteLine("Enter a withdraw in Savings menu");
                 withdraw = Convert.ToDouble(Console.ReadLine());
-                _savings.MakeWithdrawl(withdraw);
+                _savings.MakeWithdraw(withdraw);
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("B") && secondOption.Contains("b"))
             {
                 Console.WriteLine("Enter a withdraw in Checking menu");
                 withdraw = Convert.ToDouble(Console.ReadLine());
-                _chequing.MakeWithdrawl(withdraw);
+                _chequing.MakeWithdraw(withdraw);
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("B") && secondOption.Contains("b"))
             {
                 Console.WriteLine("Enter a withdraw in Global menu");
                 withdraw = Convert.ToDouble(Console.ReadLine());
-                _global.MakeWithdrawl(withdraw);
+                _global.MakeWithdraw(withdraw);
             }
         }
+
+        //Method which show the report and close the month based on the instance name (_savings, _chequing, _global)
+
         private static void ReportsDependingOnInstance() 
         {
      
@@ -178,6 +186,8 @@ namespace Inheritance_Lab3
                 Console.WriteLine(_global.CloseAndReport());
             }
         }
+
+        //Method which convert the balance of the _global instance.
 
         private static void BalanceInUSD() 
         {

@@ -8,42 +8,41 @@ namespace Inheritance_Lab3
 {
     class Chequing_Account : Account
     {
+        //ok
         public Chequing_Account(double sb, double annualRate) :base(sb, annualRate)
         {
             starting_balance = sb;
             annualInterestRate = annualRate;
         }
-
+        //ok
         public override string CloseAndReport() 
         {
-            monthServiceCharge = totalOfWithdrawalThisMonth * 0.10 + 5;
+            monthServiceCharge = numberOfWithdrawal * 0.10 + 5;
             return base.CloseAndReport();
         }
 
-
+        //ok
         public override void MakeDeposit(double amount)
         {
             base.MakeDeposit(amount);
         }
 
 
-        public override void MakeWithdrawl(double amount)
+        public override void MakeWithdraw(double amount)
         {
-         
-            
-            if (current_balance < 0) 
+ 
+            if (amount > current_balance) 
             {
                 monthServiceCharge -= 15;
-                starting_balance += 15;
-                current_balance = starting_balance;
-
+                current_balance += 15;
+ 
                 if (current_balance < 0)
                 {
-                    current_balance = starting_balance;
+                   
                 }
             }
             else
-                base.MakeWithdrawl(amount);
+                base.MakeWithdraw(amount);
         }
     }
 }

@@ -8,33 +8,35 @@ namespace Inheritance_Lab3
 {
  
     abstract class Account : IAccount
-    {
+    {   //ok
         protected enum Status
         {
             active, inactive 
         }
-
+        //ok
         protected double starting_balance;  
         protected double current_balance;  
-        protected int totalOfDepositsThisMonth; 
-        protected int totalOfWithdrawalThisMonth; 
+        protected double totalOfDepositsThisMonth; 
+        protected double totalOfWithdrawalThisMonth; 
         protected double annualInterestRate; 
         protected double monthServiceCharge; 
         protected int numberOfDeposits;
         protected int numberOfWithdrawal;
 
+        //ok
         public double Starting_Balance { get { return starting_balance; } }
         public double Current_Balance { get { return current_balance; } }
 
         public Account() { }
 
+        //ok
         public Account(double sb, double annualRate) 
         {
             starting_balance = sb;
             annualInterestRate = annualRate;
         }
 
-
+        //ok
         public void CalculateInterest()
         {
             double monthlyInterest, monthlyInterestRate;
@@ -43,6 +45,7 @@ namespace Inheritance_Lab3
             monthlyInterest = current_balance * monthlyInterestRate;
             current_balance += monthlyInterest;
         }
+
 
         public virtual string CloseAndReport()
         {
@@ -62,18 +65,20 @@ namespace Inheritance_Lab3
                    "\nService charges of the month: " + monthServiceCharge;
         }
 
+        //ok
         public virtual void MakeDeposit(double amount)
         {
-            starting_balance += amount;
+            current_balance += amount;
+            totalOfDepositsThisMonth += current_balance;
             numberOfDeposits++;
-            totalOfDepositsThisMonth = numberOfDeposits;
         }
 
-        public virtual void MakeWithdrawl(double amount)
+        //ok
+        public virtual void MakeWithdraw(double amount)
         {
-            starting_balance -= amount;
+            current_balance -= amount;
+            totalOfWithdrawalThisMonth += current_balance;
             numberOfWithdrawal++;
-            totalOfWithdrawalThisMonth = numberOfWithdrawal;
         }
     }
 }

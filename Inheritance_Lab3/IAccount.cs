@@ -8,7 +8,7 @@ namespace Inheritance_Lab3
 {
     interface IAccount
     {
-        void MakeWithdrawl(double amount);
+        void MakeWithdraw(double amount);
         void MakeDeposit(double amount);
         void CalculateInterest();
         string CloseAndReport();
