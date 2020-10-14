@@ -16,7 +16,7 @@ namespace Inheritance_Lab3
 
         public double USValue(double rate)
         {
-            return current_balance * rate;
+            return starting_balance * rate;
         }
     }
 }

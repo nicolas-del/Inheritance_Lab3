@@ -12,10 +12,11 @@ namespace Inheritance_Lab3
         private static readonly Savings_Account _savings = new Savings_Account(5.00, 0.2);
         private static readonly Chequing_Account _chequing = new Chequing_Account(5.00, 0.2);
         private static readonly GlobalSavingsAccount _global = new GlobalSavingsAccount(5.00, 0.2);
+        private static string fOption, secondOption;
 
         static void Main(string[] args)
         {
-            string firstOption, fOption, secondOption;
+            string firstOption;
 
 
             do
@@ -61,15 +62,15 @@ namespace Inheritance_Lab3
                     {
                         case "a":
                         case "A":
-                            Console.WriteLine("Savings Menu\nA: Deposits\nB: Withdrawal\nC: Close + Report\nR: Return to bank menu");
+                            Console.WriteLine("\nSavings Menu\nA: Deposits\nB: Withdrawal\nC: Close + Report\nR: Return to bank menu");
                             break;
                         case "b":
                         case "B":
-                            Console.WriteLine("Checking menu\nA: Deposits\nB: Withdrawal\nC: Close + Report\nR: Return to bank menu");
+                            Console.WriteLine("\nChecking menu\nA: Deposits\nB: Withdrawal\nC: Close + Report\nR: Return to bank menu");
                             break;
                         case "c":
                         case "C":
-                            Console.WriteLine("Global Savings menu\nA: Deposits\nB: Withdrawal\nC: Close + Report\nD: Report Balance in USD\nR: Return to bank menu");
+                            Console.WriteLine("\nGlobal Savings menu\nA: Deposits\nB: Withdrawal\nC: Close + Report\nD: Report Balance in USD\nR: Return to bank menu");
                             break;
                     }
 
@@ -117,16 +118,68 @@ namespace Inheritance_Lab3
 
         private static void DepositsDependingOnInstance() 
         {
-       
+            double deposit;
+
+            if ((!fOption.Contains("B") && !fOption.Contains("b") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("A") && secondOption.Contains("a"))
+            {
+                Console.WriteLine("Enter a deposit in Savings menu");
+            }
+            else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("A") && secondOption.Contains("a"))
+            {
+                Console.WriteLine("Enter a deposit in Checking menu");
+            }
+            else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("A") && secondOption.Contains("a")) 
+            {
+                Console.WriteLine("Enter a deposit in Global menu");
+            }
         }
-        private static void WithdrawalsDependingOnInstance() { }
-        private static void ReportsDependingOnInstance() { }
+        private static void WithdrawalsDependingOnInstance() 
+        {
+            double withdraw;
+
+            if ((!fOption.Contains("B") && !fOption.Contains("b") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("B") && secondOption.Contains("b"))
+            {
+                Console.WriteLine("Enter a withdraw in Savings menu");
+            }
+            else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("B") && secondOption.Contains("b"))
+            {
+                Console.WriteLine("Enter a withdraw in Checking menu");
+            }
+            else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("B") && secondOption.Contains("b"))
+            {
+                Console.WriteLine("Enter a withdraw in Global menu");
+            }
+        }
+        private static void ReportsDependingOnInstance() 
+        {
+     
+            if ((!fOption.Contains("B") && !fOption.Contains("b") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("C") && secondOption.Contains("c"))
+            {
+                Console.WriteLine("Enter a report in Savings menu");
+            }
+            else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("C") && secondOption.Contains("c"))
+            {
+                Console.WriteLine("Enter a report in Checking menu");
+            }
+            else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("C") && secondOption.Contains("c"))
+            {
+                Console.WriteLine("Enter a report in Global menu");
+            }
+        }
 
         private static void BalanceInUSD() 
         {
-            Console.WriteLine("Enter the rate");
-            double rate = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine(_global.USValue(rate));
+            double rate;
+            if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || fOption.Contains("C") && fOption.Contains("c") && secondOption.Contains("D") && secondOption.Contains("d"))
+            {
+                Console.WriteLine("Enter the rate");
+                rate = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine(_global.USValue(rate));
+            }
+            else 
+            {
+                Console.WriteLine("The option you type is invalid");
+            }
         }
 
     }
