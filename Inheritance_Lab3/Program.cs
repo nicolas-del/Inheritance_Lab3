@@ -123,14 +123,20 @@ namespace Inheritance_Lab3
             if ((!fOption.Contains("B") && !fOption.Contains("b") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("A") && secondOption.Contains("a"))
             {
                 Console.WriteLine("Enter a deposit in Savings menu");
+                deposit = Convert.ToDouble(Console.ReadLine());
+                _savings.MakeDeposit(deposit);
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("A") && secondOption.Contains("a"))
             {
                 Console.WriteLine("Enter a deposit in Checking menu");
+                deposit = Convert.ToDouble(Console.ReadLine());
+                _chequing.MakeDeposit(deposit);
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("A") && secondOption.Contains("a")) 
             {
                 Console.WriteLine("Enter a deposit in Global menu");
+                deposit = Convert.ToDouble(Console.ReadLine());
+                _global.MakeDeposit(deposit);
             }
         }
         private static void WithdrawalsDependingOnInstance() 
@@ -140,14 +146,20 @@ namespace Inheritance_Lab3
             if ((!fOption.Contains("B") && !fOption.Contains("b") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("B") && secondOption.Contains("b"))
             {
                 Console.WriteLine("Enter a withdraw in Savings menu");
+                withdraw = Convert.ToDouble(Console.ReadLine());
+                _savings.MakeWithdrawl(withdraw);
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("B") && secondOption.Contains("b"))
             {
                 Console.WriteLine("Enter a withdraw in Checking menu");
+                withdraw = Convert.ToDouble(Console.ReadLine());
+                _chequing.MakeWithdrawl(withdraw);
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("B") && secondOption.Contains("b"))
             {
                 Console.WriteLine("Enter a withdraw in Global menu");
+                withdraw = Convert.ToDouble(Console.ReadLine());
+                _global.MakeWithdrawl(withdraw);
             }
         }
         private static void ReportsDependingOnInstance() 
@@ -155,15 +167,15 @@ namespace Inheritance_Lab3
      
             if ((!fOption.Contains("B") && !fOption.Contains("b") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("C") && secondOption.Contains("c"))
             {
-                Console.WriteLine("Enter a report in Savings menu");
+                Console.WriteLine(_savings.CloseAndReport());
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("C") && !fOption.Contains("c")) || secondOption.Contains("C") && secondOption.Contains("c"))
             {
-                Console.WriteLine("Enter a report in Checking menu");
+                Console.WriteLine(_chequing.CloseAndReport());
             }
             else if ((!fOption.Contains("A") && !fOption.Contains("a") && !fOption.Contains("B") && !fOption.Contains("b")) || secondOption.Contains("C") && secondOption.Contains("c"))
             {
-                Console.WriteLine("Enter a report in Global menu");
+                Console.WriteLine(_global.CloseAndReport());
             }
         }
 
