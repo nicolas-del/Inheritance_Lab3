@@ -9,9 +9,9 @@ namespace Inheritance_Lab3
 {
     class Program
     {
-        private static readonly Savings_Account _savings = new Savings_Account(5.00, 0.2);
-        private static readonly Chequing_Account _chequing = new Chequing_Account(5.00, 0.2);
-        private static readonly GlobalSavingsAccount _global = new GlobalSavingsAccount(5.00, 0.2);
+        private static readonly Savings_Account _savings = new Savings_Account(25.00, 10.0);
+        private static readonly Chequing_Account _chequing = new Chequing_Account(25.00, 10.0);
+        private static readonly GlobalSavingsAccount _global = new GlobalSavingsAccount(25.00, 10.0);
         private static string fOption, secondOption;
 
         static void Main(string[] args)

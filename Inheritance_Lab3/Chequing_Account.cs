@@ -27,18 +27,20 @@ namespace Inheritance_Lab3
             base.MakeDeposit(amount);
         }
 
-
+        //ok
         public override void MakeWithdraw(double amount)
         {
  
-            if (amount > current_balance) 
+            if (amount > starting_balance) 
             {
                 monthServiceCharge -= 15;
-                current_balance += 15;
- 
-                if (current_balance < 0)
+                starting_balance += 15;
+
+                double rest = current_balance;
+
+                if (starting_balance < 0)
                 {
-                   
+                    starting_balance -= rest;   
                 }
             }
             else
