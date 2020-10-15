@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Inheritance_Lab3
 {
-    class Savings_Account : Account
+    internal class Savings_Account : Account
     {
 
-
-        //ok
         public Savings_Account(double sb, double annualRate) : base(sb, annualRate)
         {
             starting_balance = sb;
             annualInterestRate = annualRate;
         }
 
-        //ok
+        
         public override string CloseAndReport()
         {
             if (numberOfWithdrawal > 4)
@@ -26,7 +25,7 @@ namespace Inheritance_Lab3
             return base.CloseAndReport();
         }
 
-        //ok
+        
         public override void MakeDeposit(double amount) 
         {
             base.MakeDeposit(amount);
@@ -36,7 +35,7 @@ namespace Inheritance_Lab3
                 stat = Status.inactive;
         }
 
-        //ok
+        
         public override void MakeWithdraw(double amount)
         {
             if (stat == Status.active)

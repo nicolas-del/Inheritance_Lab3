@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Inheritance_Lab3
 {
- 
+    
     abstract class Account : IAccount
-    {   //ok
+    {
         protected enum Status
         {
             active, inactive 
         }
-        //ok
+        
         protected Status stat;
         protected double starting_balance;  
         protected double current_balance;  
@@ -24,20 +25,20 @@ namespace Inheritance_Lab3
         protected int numberOfDeposits;
         protected int numberOfWithdrawal;
 
-        //ok
+        
         public double Starting_Balance { get { return starting_balance; } }
         public double Current_Balance { get { return current_balance; } }
 
         public Account() { }
 
-        //ok
+        
         public Account(double sb, double annualRate) 
         {
             starting_balance = sb;
             annualInterestRate = annualRate;
         }
 
-        //ok
+        
         public void CalculateInterest()
         {
             double monthlyInterest, monthlyInterestRate;
@@ -63,7 +64,7 @@ namespace Inheritance_Lab3
                    "\nTotal deposits this month: " + totalOfDepositsThisMonth +
                    "\nTotal of withdrawal this month: " + totalOfWithdrawalThisMonth +
                    "\nAccount status: " + stat +
-                   "\nService charges of the month: ");
+                   "\nPercentage change: ");
 
             current_balance = starting_balance;
             starting_balance = 0;
@@ -73,7 +74,6 @@ namespace Inheritance_Lab3
             return "Your new current balance is of " + current_balance;
         }
 
-        //ok
         public virtual void MakeDeposit(double amount)
         {
             double amnt;
@@ -83,7 +83,7 @@ namespace Inheritance_Lab3
             numberOfDeposits++;
         }
 
-        //ok
+        
         public virtual void MakeWithdraw(double amount)
         {
             double amnt;
@@ -91,6 +91,33 @@ namespace Inheritance_Lab3
             amnt = amount;
             totalOfWithdrawalThisMonth += amnt;
             numberOfWithdrawal++;
+        }
+    }
+
+   
+
+    static class ExtensionsMethod
+    {
+
+        public static double GetPercentageChange(this Account account)
+        {
+            double percentage;
+            percentage = account.Starting_Balance / account.Current_Balance;
+            switch (account.Current_Balance)
+            {
+                case 0:
+                    return 0;
+                default:
+                    return percentage;
+            }
+        }
+
+        public static void ToNAMoneyFormat(this Account account, bool roundup)
+        {
+            if (roundup)
+            {
+                Math.Round(account.Starting_Balance);
+            }
         }
     }
 }
